@@ -1,0 +1,17 @@
+# LEE DONGSEOK(leeds06080@gmail.com)
+
+# VERSION : 2
+# first version is ubu image’s
+# docker build -t ubuj:r4r2 .
+
+FROM ubu:r4
+
+RUN cat /password | sudo -S apt update
+
+# java
+RUN cat /password | sudo -S apt install -y openjdk-8-jdk
+RUN cat /password | sudo -S apt install -y openjdk-11-jdk
+RUN cat /password | sudo -S mkdir /jbase
+RUN cat /password | sudo -S sudo chmod 755 -R /jbase
+RUN mkdir /jbase/jars
+RUN printf "java -jar /jbase/jars/*.jar" >> /jbase/starter.sh
