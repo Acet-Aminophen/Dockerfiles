@@ -1,10 +1,12 @@
 # LEE DONGSEOK(leeds06080@gmail.com)
 
-# VERSION : 2
+# VERSION : 3
 # first version is ubu image’s
-# docker build -t ubuj:r4r2 .
+# docker build --build-arg USERID=userid -t ubuj:r4r3 .
 
 FROM ubu:r4
+
+ARG USERID
 
 RUN cat /password | sudo -S apt update
 
@@ -12,6 +14,7 @@ RUN cat /password | sudo -S apt update
 RUN cat /password | sudo -S apt install -y openjdk-8-jdk
 RUN cat /password | sudo -S apt install -y openjdk-11-jdk
 RUN cat /password | sudo -S mkdir /jbase
-RUN cat /password | sudo -S sudo chmod 755 -R /jbase
+RUN cat /password | sudo -S chown -R $USERID:$USERID /jbase
+RUN cat /password | sudo -S chmod -R 755 /jbase
 RUN mkdir /jbase/jars
 RUN printf "java -jar /jbase/jars/*.jar" >> /jbase/starter.sh
