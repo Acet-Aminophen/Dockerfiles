@@ -1,0 +1,41 @@
+# LEE DONGSEOK(leeds06080@gmail.com)
+
+# VERSION : 4
+# docker build --build-arg USERID=userid --build-arg USERPWD=userpwd -t ubu:r4 .
+
+# FROM ubuntu:latest
+FROM ubuntu:20.04
+
+ARG USERID
+ARG USERPWD
+
+RUN apt update
+RUN apt -y install sudo
+
+RUN useradd -ms /bin/bash $USERID
+RUN printf "$USERID:$USERPWD" | chpasswd
+RUN usermod -aG sudo $USERID
+RUN printf "$USERPWD\n" >> /password
+RUN chown $USERID /password
+RUN chmod 700 /password
+
+RUN apt install -y htop
+RUN apt install -y curl
+RUN apt install -y wget
+RUN apt install -y nano
+RUN apt install -y net-tools
+RUN apt install -y iputils-ping
+RUN apt install -y language-pack-ko
+RUN apt install -y openssh-server
+RUN apt install -y lrzsz
+
+# python is installed since ubuntu 20.04
+RUN apt install -y python3-pip
+
+# starter
+RUN printf "cat /password | sudo -S service ssh start\nexport LC_ALL=ko_KR.UTF-8\n\n\necho \"SUCCESSFULLY STARTED\"" >> /starter.sh
+RUN chown $USERID /starter.sh
+
+EXPOSE 22
+USER $USERID
+CMD ["/bin/bash", "/starter.sh"]
