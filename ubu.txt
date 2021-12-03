@@ -2,6 +2,7 @@
 
 # VERSION : 4
 # docker build --build-arg USERID=userid --build-arg USERPWD=userpwd -t ubu:r4 .
+# docker commit -c 'CMD ["/bin/bash", "/starter.sh"]' -p something something:latest
 
 # FROM ubuntu:latest
 FROM ubuntu:20.04
