@@ -1,8 +1,8 @@
 # LEE DONGSEOK(leeds06080@gmail.com)
 
-# VERSION : 4
-# docker build --build-arg USERID=userid --build-arg USERPWD=userpwd -t ubu:r4 .
-# docker commit -c 'CMD ["/bin/bash", "/starter.sh"]' -p something something:latest
+# VERSION : 5
+# docker build --build-arg USERID=userid --build-arg USERPWD=userpwd -t ubu:r5 .
+# docker run -d ubu:r5
 
 # FROM ubuntu:latest
 FROM ubuntu:20.04
@@ -34,9 +34,9 @@ RUN apt install -y lrzsz
 RUN apt install -y python3-pip
 
 # starter
-RUN printf "cat /password | sudo -S service ssh start\nexport LC_ALL=ko_KR.UTF-8\n\n\necho \"SUCCESSFULLY STARTED\"" >> /starter.sh
+RUN printf "cat /password | sudo -S service ssh start\nexport LC_ALL=ko_KR.UTF-8\n\n\necho \"SUCCESSFULLY STARTED\"\n\n# DELETE LINES BELOW AFTER DONE WRITING THIS FILE\nwhile true; do sleep 1; done\n" >> /starter.sh
 RUN chown $USERID /starter.sh
 
 EXPOSE 22
 USER $USERID
-CMD ["/bin/bash", "/starter.sh"]
+ENTRYPOINT ["/bin/bash", "/starter.sh"]
