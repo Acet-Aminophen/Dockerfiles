@@ -39,4 +39,4 @@ RUN chown $USERID /starter.sh
 
 EXPOSE 22
 USER $USERID
-ENTRYPOINT ["/bin/bash", "/starter.sh"]
+CMD ["/bin/bash", "/starter.sh"]
