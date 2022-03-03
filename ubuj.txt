@@ -2,9 +2,9 @@
 
 # VERSION : 3
 # first version is ubu image’s
-# docker build --build-arg USERID=userid -t ubuj:r5r3 .
+# docker build --build-arg USERID=userid -t ubuj:r6r3 .
 
-FROM ubu:r5
+FROM ubu:r6
 
 ARG USERID
 
