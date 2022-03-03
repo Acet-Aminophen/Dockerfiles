@@ -1,8 +1,8 @@
 # LEE DONGSEOK(leeds06080@gmail.com)
 
-# VERSION : 5
-# docker build --build-arg USERID=userid --build-arg USERPWD=userpwd -t ubu:r5 .
-# docker run -d ubu:r5
+# VERSION : 6
+# docker build --build-arg USERID=userid --build-arg USERPWD=userpwd -t ubu:r6 .
+# docker run -d ubu:r6
 
 # FROM ubuntu:latest
 FROM ubuntu:20.04
