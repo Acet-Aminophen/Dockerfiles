@@ -1,0 +1,15 @@
+# LEE DONGSEOK(leeds06080@gmail.com)
+
+# VERSION : 1
+# docker build -t copier:r1 .
+# docker run --rm -e DIR_NAME="data" -e CHMOD=755 -v /home/dslee/t1:/org -v /home/dslee/t2:/dst copier:r1
+
+FROM busybox
+
+ARG DIR_NAME=data
+ARG CHMOD=777
+
+RUN printf "rm -rf /dst/\$DIR_NAME\ncp -r /org/\$DIR_NAME /dst/\$DIR_NAME\nchmod -R \$CHMOD /dst/\$DIR_NAME" >> /starter.sh
+RUN chmod 777 /starter.sh
+
+CMD ["sh", "/starter.sh"]
