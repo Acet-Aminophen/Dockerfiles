@@ -29,6 +29,8 @@ RUN apt install -y iputils-ping
 RUN apt install -y language-pack-ko
 RUN apt install -y openssh-server
 RUN apt install -y lrzsz
+RUN apt install -y unattended-upgrades
+RUN unattended-upgrades
 
 # python is installed since ubuntu 20.04
 RUN apt install -y python3-pip
