@@ -1,8 +1,8 @@
 # LEE DONGSEOK(leeds06080@gmail.com)
 
-# VERSION : 7
-# docker build --build-arg USERID=userid --build-arg USERPWD=userpwd -t ubu:r7 .
-# docker run -d ubu:r7
+# VERSION : 8
+# docker build --build-arg USERID=userid --build-arg USERPWD=userpwd -t ubu:r8 .
+# docker run -d ubu:r8
 
 # FROM ubuntu:latest
 FROM ubuntu:20.04
@@ -20,6 +20,7 @@ RUN printf "$USERPWD\n" >> /password
 RUN chown $USERID /password
 RUN chmod 700 /password
 
+RUN apt install -y git
 RUN apt install -y htop
 RUN apt install -y curl
 RUN apt install -y wget
