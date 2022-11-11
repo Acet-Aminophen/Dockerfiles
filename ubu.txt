@@ -1,14 +1,15 @@
 # LEE DONGSEOK(leeds06080@gmail.com)
 
-# VERSION : 8
-# docker build --build-arg USERID=userid --build-arg USERPWD=userpwd -t ubu:r8 .
-# docker run -d ubu:r8
+# VERSION : 9
+# docker build --build-arg USERID=userid --build-arg USERPWD=userpwd -t ubu:r9 .
+# docker run -d ubu:r9
 
 # FROM ubuntu:latest
 FROM ubuntu:20.04
 
 ARG USERID
 ARG USERPWD
+ARG DEBIAN_FRONTEND=noninteractive
 
 RUN apt update
 RUN apt -y install sudo
