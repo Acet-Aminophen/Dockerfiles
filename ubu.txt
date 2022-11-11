@@ -32,7 +32,7 @@ RUN apt install -y lrzsz
 RUN apt install -y unattended-upgrades
 RUN unattended-upgrades
 
-# python is installed since ubuntu 20.04
+# python3 is installed since ubuntu 20.04
 RUN apt install -y python3-pip
 
 # starter
