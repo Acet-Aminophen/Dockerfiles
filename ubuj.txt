@@ -1,10 +1,10 @@
 # LEE DONGSEOK(leeds06080@gmail.com)
 
-# VERSION : 3
+# VERSION : 4
 # first version is ubu image’s
-# docker build --build-arg USERID=userid -t ubuj:r6r3 .
+# docker build --build-arg USERID=userid -t ubuj:r4r9 .
 
-FROM ubu:r6
+FROM ubu:r9
 
 ARG USERID
 
